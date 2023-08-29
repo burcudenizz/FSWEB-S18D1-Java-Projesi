@@ -4,6 +4,7 @@ package com.workintech.s18g1.controller;
 import com.workintech.s18g1.dao.BurgerDao;
 import com.workintech.s18g1.entity.Burger;
 import com.workintech.s18g1.enums.BreadType;
+import jakarta.validation.constraints.Positive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class BurgerController {
 
 
     @GetMapping("/{id}")
-    public Burger find(int id) {
+    public Burger find(@Positive  @PathVariable int id) {
         return burgerDao.findById(id);
     }
 
